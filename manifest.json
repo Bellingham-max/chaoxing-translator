@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "超星学习通翻译",
+  "version": "5.0",
+  "description": "DeepSeek AI 驱动，学习通作业一键中译英，双语对照 + 单词释义。",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://mooc1.chaoxing.com/*",
+    "https://mooc2-ans.chaoxing.com/*",
+    "https://mobilelearn.chaoxing.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mooc1.chaoxing.com/mooc2/work/*",
+        "https://mooc1.chaoxing.com/mooc-ans/mooc2/work/*",
+        "https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu*",
+        "https://mooc1.chaoxing.com/exam/*",
+        "https://mooc1.chaoxing.com/mooc-ans/exam/*",
+        "https://mooc1.chaoxing.com/mooc-ans/mooc2/exam/*",
+        "https://mobilelearn.chaoxing.com/page/active/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
